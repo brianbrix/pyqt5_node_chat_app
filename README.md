@@ -7,4 +7,4 @@ The first thing to do is run the Node server as shown below:
 
 And then a user can access the Interface on a client machine as shown below:
 
-![Node server](/images/ui.gif)
+![Ui GIF Image](/images/ui.gif)
