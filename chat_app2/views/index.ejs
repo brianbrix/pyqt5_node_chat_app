@@ -28,7 +28,7 @@
     </div>
     <form action="/" method="POST" id="chatForm">
       <input id="txt" autocomplete="off" autofocus="on" placeholder="type your message here..." /><button>Send</button>
-      <!-- <p id="is_typing_id">geoo</p> -->
+      <p id="is_typing"></p>
     </form>
     <script>
             var socket = io.connect('http://localhost:8080');
@@ -39,6 +39,12 @@
                 $('#txt').val('');
                 return false;
             });
+
+            // $(document).on('input', 'input:text',function(){
+            //   socket.emit('is_typing', function(username) {
+            //       $('#is_typing').append(html(username));
+            //   });
+            // });
             // append the chat text message
             socket.on('chat_message', function(msg){
                 $('#messages').append($('<p>').html(msg));
@@ -47,13 +53,11 @@
             socket.on('is_online', function(username) {
                 $('#messages').append($('<p>').html(username));
             });
-            // $(document).on('input', 'input:text',function(e){
-            //   e.preventDefault();
-            //   socket.on('is_typing', function(username) {
-            //       $('#is_typing_id').append($('<p>').html(username));
+            // socket.on('is_online', function(username) {
+            //     $('#messages').append($('<p>').html(username));
             // });
             // ask username
-            var username = prompt('Please tell me your name');
+            var username = prompt('Please Enter Your Name');
             socket.emit('username', username);
 
     </script>
